@@ -20,6 +20,13 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log("error while connecting to mongodb");
 });
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://sunny-gingersnap-d7754a.netlify.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 app.use(express.json());
