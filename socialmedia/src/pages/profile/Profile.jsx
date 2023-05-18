@@ -4,7 +4,7 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import "./Profile.css";
-import axiosInst from "../../config";
+import {axiosInst} from "../../config";
 import { useParams } from "react-router";
 
 const Profile = () => {
