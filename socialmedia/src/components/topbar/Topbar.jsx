@@ -3,7 +3,7 @@ import { Chat, Notifications, Person, Search } from "@mui/icons-material";
 import "./Topbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import axiosInst from "../../config";
+import {axiosInst} from "../../config";
 import { toast } from "react-toastify";
 
 const Topbar = () => {
