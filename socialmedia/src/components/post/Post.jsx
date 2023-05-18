@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Post.css";
-import axiosInst from "../../config";
+import {axiosInst} from "../../config";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
