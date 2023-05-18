@@ -3,7 +3,7 @@ import { Chat, Notifications, Person, Search } from "@mui/icons-material";
 import "./Topbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
+import axiosInst from "../../config";
 import { toast } from "react-toastify";
 
 const Topbar = () => {
@@ -23,7 +23,7 @@ const Topbar = () => {
   useEffect(()=>{
     const getUser = async () =>{
       try{
-        const res = await axios.get(`/users?username=${search}`);
+        const res = await axiosInst.get(`/users?username=${search}`);
         setFrndlist(res.data);
       }
       catch(e){
