@@ -2,7 +2,7 @@ import { Cancel, EmojiEmotions, Label, PermMedia, Room } from "@mui/icons-materi
 import React, { useContext, useRef, useState } from "react";
 import "./Share.css";
 import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
+import axiosInst from "../../config";
 
 const Share = () => {
   const { user } = useContext(AuthContext);
@@ -24,11 +24,11 @@ const Share = () => {
       newPost.img = fileName;
       console.log(newPost);
       try {
-        await axios.post("/upload", data);
+        await axiosInst.post("/upload", data);
       } catch (err) {}
     }
     try {
-      await axios.post("/posts", newPost);
+      await axiosInst.post("/posts", newPost);
       window.location.reload();
     } catch (err) {}
   };
