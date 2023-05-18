@@ -4,6 +4,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://sunny-gingersnap-d7754a.netlify.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
@@ -18,13 +24,6 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log("connected to mongodb");
 }).catch((err)=>{
     console.log("error while connecting to mongodb");
-});
-
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://sunny-gingersnap-d7754a.netlify.app');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
 });
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
