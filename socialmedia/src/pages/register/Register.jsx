@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import "./Register.css";
-import axiosInst from "../../config";
+import {axiosInst} from "../../config";
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
