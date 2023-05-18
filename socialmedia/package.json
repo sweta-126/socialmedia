@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": `${process.env.URL}/api`
+  "proxy": "https://socialmedia-production-a4aa.up.railway.app/api"
 }
