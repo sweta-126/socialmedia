@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Post.css";
-import axios from "axios";
+import axiosInst from "../../config";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -19,7 +19,7 @@ const Post = ({ post }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?userId=${post.userId}`);
+      const res = await axiosInst.get(`/users?userId=${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -27,7 +27,7 @@ const Post = ({ post }) => {
 
   const likeHandler = () => {
     try {
-      axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
+      axiosInst.put("/posts/" + post._id + "/like", { userId: currentUser._id });
     } catch (e) {
       console.log(e);
     }
@@ -37,7 +37,7 @@ const Post = ({ post }) => {
 
   const deleteHandler = async () => {
     try{
-      await axios.delete(`/posts/${post._id}`, { data : { userId: currentUser._id }});
+      await axiosInst.delete(`/posts/${post._id}`, { data : { userId: currentUser._id }});
       window.location.reload();
     }catch(e){
       console.log(e);
