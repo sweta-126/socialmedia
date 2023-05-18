@@ -4,7 +4,7 @@ import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
-import axiosInst from "../../config";
+import {axiosInst} from "../../config";
 import { Add, Remove } from "@mui/icons-material";
 
 const Rightbar = ({ user }) => {
