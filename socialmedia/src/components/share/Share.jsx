@@ -2,7 +2,7 @@ import { Cancel, EmojiEmotions, Label, PermMedia, Room } from "@mui/icons-materi
 import React, { useContext, useRef, useState } from "react";
 import "./Share.css";
 import { AuthContext } from "../../context/AuthContext";
-import axiosInst from "../../config";
+import {axiosInst} from "../../config";
 
 const Share = () => {
   const { user } = useContext(AuthContext);
