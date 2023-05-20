@@ -5,13 +5,6 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://socialmedia-app-mern-application.netlify.app');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
-
 
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
